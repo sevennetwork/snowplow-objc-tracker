@@ -18,6 +18,18 @@ class DemoUtils {
         self.trackTimingWithCategoryWithTracker(tracker)
         self.trackEcommerceTransactionWithTracker(tracker)
         self.trackPushNotificationWithTracker(tracker)
+        self.trackTestCustomEventWithTracker(tracker)
+        
+    }
+    
+    static func trackTestCustomEventWithTracker(_ tracker: SPTracker) {
+        let data : NSDictionary = [ "exampleStringField": "demo-tracker", "exampleIntegerField": 10 ]
+        let sdj = SPSelfDescribingJson(schema: "iglu:com.example_company/example_event/jsonschema/1-0-0", andData: data);
+        let event = SPUnstructured.build({ (builder: SPUnstructuredBuilder?) -> Void in
+            builder!.setEventData(sdj!)
+        })
+        tracker.trackUnstructuredEvent(event)
+        
     }
     
     static func trackStructuredEventWithTracker(_ tracker: SPTracker) {

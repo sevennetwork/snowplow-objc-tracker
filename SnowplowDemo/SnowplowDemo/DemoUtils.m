@@ -294,7 +294,7 @@
     SPPushNotification * event = [SPPushNotification build:^(id<SPPushNotificationBuilder> builder) {
         [builder setAction:@"action"];
         [builder setTrigger:@"trigger"];
-        [builder setDate:@"date"];
+//        [builder setDate:@"date"];
         [builder setCategoryIdentifier:@"category"];
         [builder setThreadIdentifier:@"thread"];
         [builder setNotification:content];

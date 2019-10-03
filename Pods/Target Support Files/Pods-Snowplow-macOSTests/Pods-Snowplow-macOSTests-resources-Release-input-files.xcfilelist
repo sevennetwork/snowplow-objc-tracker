@@ -1,0 +1,2 @@
+${PODS_ROOT}/Target Support Files/Pods-Snowplow-macOSTests/Pods-Snowplow-macOSTests-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/SnowplowIgluClient-macOS/SnowplowIgluResources.bundle
