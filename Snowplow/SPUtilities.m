@@ -22,6 +22,10 @@
 
 #import "Snowplow.h"
 #import "SPUtilities.h"
+#import "SPPayload.h"
+#import "SPSelfDescribingJson.h"
+#import "SPScreenState.h"
+#include <sys/sysctl.h>
 
 #if SNOWPLOW_TARGET_IOS
 
@@ -29,7 +33,8 @@
 #import <UIKit/UIScreen.h>
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
-#import "Reachability.h"
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <SnowplowTracker/SnowplowTracker-Swift.h>
 
 #elif SNOWPLOW_TARGET_OSX
 
@@ -117,17 +122,9 @@
 }
 
 + (NSString *) getNetworkType {
-    NSString * type = nil;
+    NSString * type = @"offline";
 #if SNOWPLOW_TARGET_IOS
-    Reachability *reachability = [Reachability reachabilityForInternetConnection];
-    [reachability startNotifier];
-    NetworkStatus status = [reachability currentReachabilityStatus];
-    if (status == ReachableViaWiFi) {
-        type = @"wifi";
-    }
-    else if (status == ReachableViaWWAN) {
-        type = @"mobile";
-    }
+    type = [ReachabilityBridge connectionType];
 #endif
     return type;
 }
@@ -174,18 +171,13 @@
 }
 
 + (NSString *) getDeviceModel {
-#if SNOWPLOW_TARGET_IOS || SNOWPLOW_TARGET_TV
-    return [[UIDevice currentDevice] model];
-#else
     size_t size;
-    char *model = nil;
-    sysctlbyname("hw.model", NULL, &size, NULL, 0);
-    model = malloc(size);
-    sysctlbyname("hw.model", model, &size, NULL, 0);
-    NSString *hwString = [NSString stringWithCString:model encoding:NSUTF8StringEncoding];
-    free(model);
-    return hwString;
-#endif
+    sysctlbyname("hw.machine", NULL, &size, NULL, 0);
+    char *machine = malloc(size);
+    sysctlbyname("hw.machine", machine, &size, NULL, 0);
+    NSString *platform = [NSString stringWithUTF8String:machine];
+    free(machine);
+    return platform;
 }
 
 + (NSString *) getOSVersion {
@@ -259,16 +251,14 @@
 + (BOOL) isOnline {
     BOOL online = YES;
 #if SNOWPLOW_TARGET_IOS
-    Reachability * reachability = [Reachability reachabilityForInternetConnection];
-    NetworkStatus networkStatus = [reachability currentReachabilityStatus];
-    online = networkStatus != NotReachable;
+    online = [ReachabilityBridge isOnline];
 #endif
     return online;
 }
 
 + (void) checkArgument:(BOOL)argument withMessage:(NSString *)message {
     if (!argument) {
-        [NSException raise:@"IllegalArgumentException" format:@"%@", message];
+        SnowplowDLog(@"SPLog: Error occurred while checking argument: %@", message);
     }
 }
 
@@ -363,6 +353,47 @@
         }
         return camelcaseKey;
     }
+}
+
++ (NSString *) validateString:(NSString *)aString {
+    if (!aString | ([aString length] == 0)) {
+        return nil;
+    }
+    return aString;
+}
+
++ (SPSelfDescribingJson *) getScreenContextWithScreenState:(SPScreenState *)screenState {
+    SPPayload * contextPayload = [screenState getValidPayload];
+    if (contextPayload) {
+        return [[SPSelfDescribingJson alloc] initWithSchema:kSPScreenContextSchema andPayload:contextPayload];
+    } else {
+    	return nil;
+    }
+}
+
++ (SPSelfDescribingJson *) getApplicationContext {
+    NSString * version = [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+    NSString * build = [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
+    return [self getApplicationContextWithVersion:version andBuild:build];
+}
+
++ (SPSelfDescribingJson *) getApplicationContextWithVersion:(NSString *)version andBuild:(NSString *)build {
+    SPPayload * payload = [[SPPayload alloc] init];
+    [payload addValueToPayload:build forKey:kSPApplicationBuild];
+    [payload addValueToPayload:version forKey:kSPApplicationVersion];
+    if (payload != nil && [[payload getAsDictionary] count] > 0) {
+        return [[SPSelfDescribingJson alloc] initWithSchema:kSPApplicationContextSchema andPayload:payload];
+    } else {
+        return nil;
+    }
+}
+
++ (NSString *) getAppVersion {
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey: @"CFBundleShortVersionString"];
+}
+
++ (NSString *) getAppBuild {
+    return [[NSBundle mainBundle] objectForInfoDictionaryKey: (NSString *)kCFBundleVersionKey];
 }
 
 @end
