@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "FMDB",
+        "repositoryURL": "https://github.com/ccgus/fmdb",
+        "state": {
+          "branch": null,
+          "revision": "fab5c73f8c91d868f1f63a52bb28aed977bc5f71",
+          "version": "2.7.6"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
