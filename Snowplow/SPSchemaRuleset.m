@@ -27,6 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SPSchemaRuleset ()
 
+- (instancetype) privateInit;
+
 @property (nonatomic, copy) NSMutableArray<SPSchemaRule *> *rulesAllowed;
 @property (nonatomic, copy) NSMutableArray<SPSchemaRule *> *rulesDenied;
 
@@ -34,12 +36,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation SPSchemaRuleset: NSObject
 
+- (instancetype)privateInit {
+    return [super init];
+}
+
 - (id)copyWithZone:(nullable NSZone *)zone {
     return [SPSchemaRuleset rulesetWithAllowedList:self.allowed andDeniedList:self.denied];
 }
 
 + (SPSchemaRuleset *)rulesetWithAllowedList:(NSArray<NSString *> *)allowed andDeniedList:(NSArray<NSString *> *)denied {
-    SPSchemaRuleset *ruleset = [[SPSchemaRuleset alloc] init];
+    SPSchemaRuleset *ruleset = [[SPSchemaRuleset alloc] privateInit];
     NSMutableArray<SPSchemaRule *> *rulesAllowed = [NSMutableArray array];
     for (NSString *rule in allowed) {
         SPSchemaRule *schemaRule = [[SPSchemaRule alloc] initWithRule:rule];
