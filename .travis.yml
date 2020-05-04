@@ -9,23 +9,23 @@ before_install: . .travis/setup.sh
 
 jobs:
   include:
-    - name: "Test Snowplow framework - xcode10 - swift 4.2"
+    - name: "Test Snowplow framework - swift 4.2"
       osx_image: xcode10.1
-      script: .travis/test_framework.sh "${BUILD_PROJECT_LIB}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_LIB_IOS}" "${BUILD_DEST_WATCH}" "${BUILD_SCHEME_LIB_WATCH}"
+      script: .travis/test_framework.sh "${BUILD_PROJECT_LIB}" "${BUILD_DEST_OLD_IOS}" "${BUILD_SCHEME_LIB_IOS}" "${BUILD_DEST_WATCH}" "${BUILD_SCHEME_LIB_WATCH}"
       after_success: slather
 
-    - name: "Test Snowplow framework - xcode11.4 - swift 5.2"
+    - name: "Test Snowplow framework - swift 5.2"
       osx_image: xcode11.4
       script: .travis/test_framework.sh "${BUILD_PROJECT_LIB}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_LIB_IOS}" "${BUILD_DEST_WATCH}" "${BUILD_SCHEME_LIB_WATCH}"
 
     - name: "Test Snowplow ObjC demo app"
       script: .travis/test_ios_demo.sh SnowplowDemo Podfile "${BUILD_WORKSPACE_OBJC_DEMO}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_OBJC_DEMO}"
 
-    - name: "Test Snowplow Swift demo app using Carthage - xcode10 - swift 4.2"
+    - name: "Test Snowplow Swift demo app using Carthage - swift 4.2"
       osx_image: xcode10.1
-      script: .travis/test_ios_demo.sh SnowplowSwiftCarthageDemo Cartfile "${BUILD_PROJECT_SWIFT_DEMO}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_SWIFT_DEMO_IOS}"
+      script: .travis/test_ios_demo.sh SnowplowSwiftCarthageDemo Cartfile "${BUILD_PROJECT_SWIFT_DEMO}" "${BUILD_DEST_OLD_IOS}" "${BUILD_SCHEME_SWIFT_DEMO_IOS}"
 
-    - name: "Test Snowplow Swift demo app using Carthage - xcode11.4 - swift 5.2"
+    - name: "Test Snowplow Swift demo app using Carthage - swift 5.2"
       osx_image: xcode11.4
       script: .travis/test_ios_demo.sh SnowplowSwiftCarthageDemo Cartfile "${BUILD_PROJECT_SWIFT_DEMO}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_SWIFT_DEMO_IOS}"
 

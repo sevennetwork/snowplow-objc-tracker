@@ -13,6 +13,7 @@ fi
 
 printf "\n\n Setup env variables \n"
 
+BUILD_DEST_OLD_IOS="platform=iOS Simulator,OS:8.1,name:iPad 2"
 BUILD_DEST_IOS="platform=iOS Simulator,OS=13.4,name=iPhone 11 Pro"
 BUILD_DEST_PAIRED="platform=iOS Simulator,OS=13.4,name=iPhone 11 Pro"
 BUILD_DEST_WATCH="platform=watchOS Simulator,OS=6.2,name=Apple Watch Series 5 - 44mm"
