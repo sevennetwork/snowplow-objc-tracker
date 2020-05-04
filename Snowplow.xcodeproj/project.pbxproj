@@ -71,7 +71,6 @@
 		75CAC40A21F2955100271FB3 /* TestGeneratedJsons.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CAC3F621F2955000271FB3 /* TestGeneratedJsons.m */; };
 		75CAC40C21F2955100271FB3 /* TestEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CAC3FA21F2955000271FB3 /* TestEvent.m */; };
 		75CAC40D21F2955100271FB3 /* TestEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CAC3FB21F2955100271FB3 /* TestEmitter.m */; };
-		75CAC40E21F2955100271FB3 /* TestRequestResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CAC3FC21F2955100271FB3 /* TestRequestResponse.m */; };
 		75CAC40F21F2955100271FB3 /* SnowplowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CAC3FD21F2955100271FB3 /* SnowplowTests.m */; };
 		75CAC41121F2955100271FB3 /* TestTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CAC40021F2955100271FB3 /* TestTracker.m */; };
 		75CAC41221F2955100271FB3 /* TestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 75CAC40121F2955100271FB3 /* TestRequest.m */; };
@@ -409,7 +408,7 @@
 /* Begin PBXFileReference section */
 		04062D741B8390710019B8D1 /* SPSubject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSubject.h; sourceTree = "<group>"; };
 		04062D751B8390870019B8D1 /* SPSubject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSubject.m; sourceTree = "<group>"; };
-		0413DD751B78D635000D2112 /* SPRequestResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPRequestResponse.h; sourceTree = "<group>"; };
+		0413DD751B78D635000D2112 /* SPRequestResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPRequestResponse.h; sourceTree = "<group>"; };
 		0413DD761B78D643000D2112 /* SPRequestResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPRequestResponse.m; sourceTree = "<group>"; };
 		043EC5DD1B8F048500294081 /* SPSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SPSession.h; sourceTree = "<group>"; };
 		043EC5DF1B8F049200294081 /* SPSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SPSession.m; sourceTree = "<group>"; };
@@ -1239,7 +1238,6 @@
 				75CAC40F21F2955100271FB3 /* SnowplowTests.m in Sources */,
 				75CAC41321F2955100271FB3 /* TestUtils.m in Sources */,
 				75CAC40521F2955100271FB3 /* TestSession.m in Sources */,
-				75CAC40E21F2955100271FB3 /* TestRequestResponse.m in Sources */,
 				75CAC40C21F2955100271FB3 /* TestEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -21,8 +21,8 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Snowplow.h"
 #import "SPRequestResponse.h"
+#import "Snowplow.h"
 
 @interface TestRequestResponse : XCTestCase
 
