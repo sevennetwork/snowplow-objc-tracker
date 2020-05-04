@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		CEF26A0D243CC5630051C2EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF26A00243CC5630051C2EB /* Assets.xcassets */; };
 		CEF26A0F243CC5630051C2EB /* MetricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF26A02243CC5630051C2EB /* MetricsViewController.swift */; };
 		CEF26A11243CC5630051C2EB /* AdditionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF26A05243CC5630051C2EB /* AdditionalViewController.swift */; };
+		EDEFAA4524604D35009EF7B4 /* SnowplowTracker in Frameworks */ = {isa = PBXBuildFile; productRef = EDEFAA4424604D35009EF7B4 /* SnowplowTracker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		CEF26A02243CC5630051C2EB /* MetricsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetricsViewController.swift; path = ../../CommonSwiftCode/MetricsViewController.swift; sourceTree = "<group>"; };
 		CEF26A04243CC5630051C2EB /* SnowplowSwiftDemo.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; name = SnowplowSwiftDemo.entitlements; path = ../../CommonSwiftCode/SnowplowSwiftDemo.entitlements; sourceTree = "<group>"; };
 		CEF26A05243CC5630051C2EB /* AdditionalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdditionalViewController.swift; path = ../../CommonSwiftCode/AdditionalViewController.swift; sourceTree = "<group>"; };
+		ED1CB1A924604ACA007FAF7B /* snowplow-objc-tracker */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "snowplow-objc-tracker"; path = ../..; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEFAA4524604D35009EF7B4 /* SnowplowTracker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,6 +52,7 @@
 		CE57B9D7243CD152004C4941 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ED1CB1A924604ACA007FAF7B /* snowplow-objc-tracker */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,6 +119,7 @@
 			);
 			name = SnowplowSwiftSPMDemo;
 			packageProductDependencies = (
+				EDEFAA4424604D35009EF7B4 /* SnowplowTracker */,
 			);
 			productName = SnowplowSwiftSPMDemo;
 			productReference = CEF269DD243CC5440051C2EB /* SnowplowSwiftSPMDemo.app */;
@@ -326,6 +331,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				INFOPLIST_FILE = SnowplowSwiftSPMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -345,6 +351,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "";
 				INFOPLIST_FILE = SnowplowSwiftSPMDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -379,6 +386,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EDEFAA4424604D35009EF7B4 /* SnowplowTracker */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = SnowplowTracker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CEF269FD243CC5630051C2EB /* SnowplowSwiftDemo.xcdatamodeld */ = {
