@@ -9,6 +9,8 @@ framework module SnowplowTracker {
     header "SPSelfDescribingJson.h"
     header "SPDevicePlatform.h"
     
+    header "SPRequestResponse.h"
+    
     header "SPEventBase.h"
     header "SPPageView.h"
     header "SPStructured.h"
