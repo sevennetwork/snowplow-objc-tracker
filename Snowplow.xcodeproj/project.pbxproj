@@ -41,7 +41,7 @@
 		752DAC3821CC43C70065F874 /* SPSelfDescribingJson.h in Headers */ = {isa = PBXBuildFile; fileRef = 0485CA141BAC658500214BC5 /* SPSelfDescribingJson.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		752DAC3921CC43C70065F874 /* SPEventStore.h in Headers */ = {isa = PBXBuildFile; fileRef = ABB767AE194974D3006275D1 /* SPEventStore.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		752DAC3A21CC43C70065F874 /* SPUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = ABFCC3741922984A00FAE8FE /* SPUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		752DAC3B21CC43C70065F874 /* SPRequestResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0413DD751B78D635000D2112 /* SPRequestResponse.h */; };
+		752DAC3B21CC43C70065F874 /* SPRequestResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0413DD751B78D635000D2112 /* SPRequestResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		752DAC3C21CC43C70065F874 /* SPWeakTimerTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 044CA88B1B94791E000EA3B1 /* SPWeakTimerTarget.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		752DAC3E21CC43C70065F874 /* SPRequestCallback.h in Headers */ = {isa = PBXBuildFile; fileRef = 049B2BDA1B7A203200BD82FC /* SPRequestCallback.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		752DAC3F21CC4A7B0065F874 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB9E8213192DEC38006744C9 /* CoreTelephony.framework */; };
