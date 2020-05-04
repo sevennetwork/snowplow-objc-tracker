@@ -1,9 +1,5 @@
 language: objective-c
 
-osx_image:
-  - xcode10.1
-  - xcode11.4
-
 env:
   global:
     - secure: H45yyUlB0cXQrzTTcnmD3WrkCyqjUzaop2jHgmBF3bm8ue4XOcTWKDSDcAN39SG0FUeDC7GdDCtWAc3VCpLwN++5IznAnvBuZSGgxQ2lCxWMhdTtXtOWU2mivgVvs+uldS7/TuVlOjZ7inrTgetl+jgFjenwESOGIIZwn7SXpPo=
@@ -14,6 +10,9 @@ before_install: . .travis/setup.sh
 jobs:
   include:
     - name: "Test Snowplow framework"
+      osx_image:
+        - xcode10.1
+        - xcode11.4
       script: .travis/test_framework.sh "${BUILD_PROJECT_LIB}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_LIB_IOS}" "${BUILD_DEST_WATCH}" "${BUILD_SCHEME_LIB_WATCH}"
       after_success: slather
 
