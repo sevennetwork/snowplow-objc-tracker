@@ -39,7 +39,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 + (SPSchemaRuleset *)rulesetWithAllowedList:(NSArray<NSString *> *)allowed andDeniedList:(NSArray<NSString *> *)denied {
-    SPSchemaRuleset *ruleset = [SPSchemaRuleset new];
+    SPSchemaRuleset *ruleset = [[SPSchemaRuleset alloc] init];
     NSMutableArray<SPSchemaRule *> *rulesAllowed = [NSMutableArray array];
     for (NSString *rule in allowed) {
         SPSchemaRule *schemaRule = [[SPSchemaRule alloc] initWithRule:rule];
