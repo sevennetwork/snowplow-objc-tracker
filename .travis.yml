@@ -1,5 +1,7 @@
 language: objective-c
 
+osx_image: xcode10.1
+
 env:
   global:
     - secure: H45yyUlB0cXQrzTTcnmD3WrkCyqjUzaop2jHgmBF3bm8ue4XOcTWKDSDcAN39SG0FUeDC7GdDCtWAc3VCpLwN++5IznAnvBuZSGgxQ2lCxWMhdTtXtOWU2mivgVvs+uldS7/TuVlOjZ7inrTgetl+jgFjenwESOGIIZwn7SXpPo=
@@ -9,8 +11,7 @@ before_install: . .travis/setup.sh
 
 jobs:
   include:
-    - name: "Framework - swift 4.2"
-      osx_image: xcode10.1
+    - name: "Framework"
       script: .travis/test_framework.sh "${BUILD_PROJECT_LIB}" "${BUILD_DEST_OLD_IOS}" "${BUILD_SCHEME_LIB_IOS}" "${BUILD_DEST_WATCH}" "${BUILD_SCHEME_LIB_WATCH}"
       after_success: slather
 
@@ -21,24 +22,27 @@ jobs:
     - name: "ObjC demo app"
       script: .travis/test_ios_demo.sh SnowplowDemo Podfile "${BUILD_WORKSPACE_OBJC_DEMO}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_OBJC_DEMO}"
 
-    - name: "Swift demo app - Carthage - swift 4.2"
-      osx_image: xcode10.1
+    - name: "Swift demo app - Carthage"
       script: .travis/test_ios_demo.sh SnowplowSwiftCarthageDemo Cartfile "${BUILD_PROJECT_SWIFT_DEMO}" "${BUILD_DEST_OLD_IOS}" "${BUILD_SCHEME_SWIFT_DEMO_IOS}"
 
     - name: "Swift demo app - Carthage - swift 5.2"
       osx_image: xcode11.4
       script: .travis/test_ios_demo.sh SnowplowSwiftCarthageDemo Cartfile "${BUILD_PROJECT_SWIFT_DEMO}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_SWIFT_DEMO_IOS}"
 
-    - name: "Swift demo app - Cocoapods (no directive)"
+    - name: "Swift demo app - Cocoapods (no directive) - swift 5.2"
+      osx_image: xcode11.4
       script: .travis/test_ios_demo.sh SnowplowSwiftCocoapodsDemo Podfile_simple "${BUILD_WORKSPACE_SWIFT_DEMO}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_SWIFT_DEMO_IOS}" "${BUILD_DEST_PAIRED}" "${BUILD_SCHEME_SWIFT_DEMO_WATCH}"
 
-    - name: "Swift demo app - Cocoapods (use_frameworks! directive)"
+    - name: "Swift demo app - Cocoapods (use_frameworks! directive) - swift 5.2"
+      osx_image: xcode11.4
       script: .travis/test_ios_demo.sh SnowplowSwiftCocoapodsDemo Podfile_frameworks "${BUILD_WORKSPACE_SWIFT_DEMO}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_SWIFT_DEMO_IOS}" "${BUILD_DEST_PAIRED}" "${BUILD_SCHEME_SWIFT_DEMO_WATCH}"
 
-    - name: "Swift demo app - Cocoapods (use_modular_headers! directive)"
+    - name: "Swift demo app - Cocoapods (use_modular_headers! directive) - swift 5.2"
+      osx_image: xcode11.4
       script: .travis/test_ios_demo.sh SnowplowSwiftCocoapodsDemo Podfile_modular_headers "${BUILD_WORKSPACE_SWIFT_DEMO}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_SWIFT_DEMO_IOS}" "${BUILD_DEST_PAIRED}" "${BUILD_SCHEME_SWIFT_DEMO_WATCH}"
 
-    - name: "Swift demo app - Swift Package Manager"
+    - name: "Swift demo app - Swift Package Manager - swift 5.2"
+      osx_image: xcode11.4
       script: .travis/test_ios_demo.sh SnowplowSwiftSPMDemo SPM "${BUILD_PROJECT_SWIFT_SPM_DEMO}" "${BUILD_DEST_IOS}" "${BUILD_SCHEME_SWIFT_SPM_DEMO_IOS}"
 
 
