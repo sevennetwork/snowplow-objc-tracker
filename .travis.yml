@@ -10,6 +10,9 @@ env:
 before_install:
   - . .travis/setup.sh 
   - swift --version
+  - xcrun swift --version
+  - /usr/bin/swiftc --version
+  - xcrun --find swift
 
 jobs:
   include:
