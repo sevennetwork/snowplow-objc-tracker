@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		CEF26A0D243CC5630051C2EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEF26A00243CC5630051C2EB /* Assets.xcassets */; };
 		CEF26A0F243CC5630051C2EB /* MetricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF26A02243CC5630051C2EB /* MetricsViewController.swift */; };
 		CEF26A11243CC5630051C2EB /* AdditionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEF26A05243CC5630051C2EB /* AdditionalViewController.swift */; };
+		EDEFAA482461A487009EF7B4 /* SnowplowTracker in Frameworks */ = {isa = PBXBuildFile; productRef = EDEFAA472461A487009EF7B4 /* SnowplowTracker */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDEFAA482461A487009EF7B4 /* SnowplowTracker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +119,7 @@
 			);
 			name = SnowplowSwiftSPMDemo;
 			packageProductDependencies = (
+				EDEFAA472461A487009EF7B4 /* SnowplowTracker */,
 			);
 			productName = SnowplowSwiftSPMDemo;
 			productReference = CEF269DD243CC5440051C2EB /* SnowplowSwiftSPMDemo.app */;
@@ -148,6 +151,7 @@
 			);
 			mainGroup = CEF269D4243CC5440051C2EB;
 			packageReferences = (
+				EDEFAA462461A487009EF7B4 /* XCRemoteSwiftPackageReference "snowplow-objc-tracker" */,
 			);
 			productRefGroup = CEF269DE243CC5440051C2EB /* Products */;
 			projectDirPath = "";
@@ -383,6 +387,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EDEFAA462461A487009EF7B4 /* XCRemoteSwiftPackageReference "snowplow-objc-tracker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/snowplow/snowplow-objc-tracker";
+			requirement = {
+				branch = test/spm_fmdb_unversioned;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EDEFAA472461A487009EF7B4 /* SnowplowTracker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EDEFAA462461A487009EF7B4 /* XCRemoteSwiftPackageReference "snowplow-objc-tracker" */;
+			productName = SnowplowTracker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CEF269FD243CC5630051C2EB /* SnowplowSwiftDemo.xcdatamodeld */ = {
